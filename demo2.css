@@ -1,0 +1,39 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    border-bottom: solid 2px black;
+}
+
+/* nav {
+    display: flex;
+    flex-direction: row;
+} */
+
+/* nav a {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    flex-grow: 1;
+} */
+main {
+    display: flex;
+}
+
+main section:first-child {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 2px black;
+}
+
+main section>form {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
