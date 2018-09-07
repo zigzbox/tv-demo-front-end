@@ -8,6 +8,7 @@ class NavSite extends Component {
             <nav>
                 <Link to='/TVdemoPreview'>Preview</Link>
                 <Link to='/TVdemo'>Shows</Link>
+                
             </nav>
         )
     }

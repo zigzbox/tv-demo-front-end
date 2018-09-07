@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NavSite from './NavSite';
 import './App.css'
+import Shows from './Shows';
 
 class TVdemo extends Component {
     render() {
@@ -14,11 +15,11 @@ class TVdemo extends Component {
                     <ul>
                         <li>
                             <label>Thunder Cats *NEW*</label>
-                            <button></button>
+                            <button onClick={Shows}></button>
                         </li>
                         <li>
                             <label>Gary and his demons</label>
-                            <button></button>
+                            <button  onClick={Shows}></button>
                         </li>
                     </ul>
                 </div>
