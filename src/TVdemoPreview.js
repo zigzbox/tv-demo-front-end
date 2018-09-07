@@ -35,6 +35,7 @@ class TVdemoPreview extends Component {
                     <h1>SHOWNAME</h1>
                     <h1>RATING</h1>
                     <img src="https://static.vrv.co/imgsrv/display/thumbnail/640x360/catalog/mondo/d35d9647ba1fe3e79521a75628e4b23e.jpg" />
+                    <button onClick={this.props.saveShow}>SUBMIT</button>
                 </div>
 
             </div>
