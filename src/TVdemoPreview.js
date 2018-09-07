@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import NavSite from './NavSite';
-import './App.css' 
-import Shows from './Shows';
+import './App.css'
 
 class TVdemoPreview extends Component {
+    renderDelete = () => {
+        if (this.props.allowDelete) {
+            return (
+                <button>-</button>
+                
+            )
+        }
+    }
     render() {
         return (
             <div>
                 <header>
-                    <NavSite/>
+                    <NavSite />
                 </header>
                 <div>
                     <h2>SHOWS</h2>
@@ -16,11 +23,11 @@ class TVdemoPreview extends Component {
                     <ul>
                         <li>
                             <label>Thunder Cats *NEW*</label>
-                            <button onClick={Shows}>-</button>
+                            <button onClick={this.props.selectHandler}>-</button>
                         </li>
                         <li>
                             <label>Gary and his demons</label>
-                            <button onClick={Shows}>-</button>
+                            <button onClick={this.props.selectHandler}>-</button>
                         </li>
                     </ul>
                 </div>
