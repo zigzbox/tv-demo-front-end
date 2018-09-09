@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import NavSite from './NavSite';
-import './App.css'
-
+import './demo.css'
 class TVdemoPreview extends Component {
+    
     renderDelete = () => {
         if (this.props.allowDelete) {
             return (
                 <button>-</button>
                 
             )
+            console.log('button')
         }
     }
     render() {
@@ -17,7 +18,7 @@ class TVdemoPreview extends Component {
                 <header>
                     <NavSite />
                 </header>
-                <div>
+                <main>
                     <h2>SHOWS</h2>
                     <p>Preview location place holder.</p>
                     <ul>
@@ -30,13 +31,13 @@ class TVdemoPreview extends Component {
                             <button onClick={this.props.selectHandler}>-</button>
                         </li>
                     </ul>
-                </div>
-                <div>
+                </main>
+                <section>
                     <h1>SHOWNAME</h1>
                     <h1>RATING</h1>
                     <img src="https://static.vrv.co/imgsrv/display/thumbnail/640x360/catalog/mondo/d35d9647ba1fe3e79521a75628e4b23e.jpg" />
                     <button onClick={this.props.saveShow}>SUBMIT</button>
-                </div>
+                </section>
 
             </div>
         )
