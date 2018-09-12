@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 
 class Shows extends Component {
-    
+
     renderDelete = () => {
+
         if (this.props.allowDelete) {
             return (
-                <button>-</button>
+                <button onClick={this.props.deleteHandler}>-</button>
             )
         }
     }
     render() {
         return (
-            <div>
-             {this.renderDelete()}
+            <div className='column'>
+                {this.renderDelete()}
+                <button onClick={this.props.selectHandler} />
             </div>
         )
     }

@@ -5,23 +5,27 @@ import Shows from './Shows';
 
 
 class TVdemo extends Component {
-    state = {
-
+    showDeleted = () => {
+        this.props.showDeleted
     }
-    deleteHandler = (event) => {
-        this.setState({
-
-        })
+    showSelected = () => {
+        this.props.showSelected
     }
-
 
 
 
     render() {
         return (
             <div>
-              
-                <Shows allowDelete={true}/>
+                <Shows allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+                <div className='box'>
+                    <ul>
+                        <li><input type='text'></input></li>
+                        <li><input type='text'></input></li>
+                        <li><image url='image src'>-</image></li>
+                        <button type='submit'>Submit</button>
+                    </ul>
+                </div>
             </div>
         )
     }

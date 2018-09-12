@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Shows from './Shows';
 
 class TVdemoPreview extends Component {
-    
+
     renderDelete = () => {
         if (this.props.allowDelete) {
             return (
