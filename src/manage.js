@@ -11,7 +11,7 @@ class TVdemo extends Component {
     showSelected = () => {
         this.props.showSelected
     }
-
+    
 
 
     render() {
@@ -23,7 +23,7 @@ class TVdemo extends Component {
                         <li><input type='text'></input></li>
                         <li><input type='text'></input></li>
                         <li><image url='image src'>-</image></li>
-                        <button type='submit'>Submit</button>
+                        <button type='submit' onClick={this.props.saveShow}>Submit</button>
                     </ul>
                 </div>
             </div>
