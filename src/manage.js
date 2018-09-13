@@ -6,7 +6,9 @@ import Shows from './Shows';
 
 class TVdemo extends Component {
     state = {
-        name: ''
+        name: '',
+        rating: '',
+        imgurl: ''
 
     }
     // handleOnClick = ()=>{
@@ -37,17 +39,29 @@ class TVdemo extends Component {
     saveShow = () => {
         this.props.saveShow
     }
-
+    renderShows=()=> {
+        return(
+            
+        )
+    }
 
     render() {
         return (
-            <div>
+            <div className='box'>
                 <Shows allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
 
-                <form className='box'>
+                <form>
                     <div>
                         <label htmlFor='name'>Name:</label>
                         <input id='name' type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    </div>
+                    <div>
+                        <label htmlFor='rating'>Rating:</label>
+                        <input id='name' type='text' value={this.state.rating}  />
+                    </div>
+                    <div>
+                        <label htmlFor='imageurl'>Image URL:</label>
+                        <input id='name' type='text' value={this.state.imageurl} />
                     </div>
 
                 </form>
