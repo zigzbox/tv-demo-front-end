@@ -5,16 +5,27 @@ import Shows from './Shows';
 
 
 class TVdemo extends Component {
-    state ={
-        
+    state = {
+        name: ''
+
     }
-    handleOnClick = ()=>{
+    // handleOnClick = ()=>{
+    //     this.setState({
+    //         name: event.target.name,
+    //         rating: event.target.rating,
+    //         imgurl: event.target.imgurl
+
+    //     })
+    //  }
+    handleNameChange = (event) => {
+        console.log(event)
+        console.log(event.target)
+        console.log(event.target.value)
         this.setState({
-            name: event.target.name,
-            rating: event.target.rating,
-            imgurl: event.target.imgurl
+            name: event.target.value
 
         })
+
     }
 
     showDeleted = () => {
@@ -23,7 +34,7 @@ class TVdemo extends Component {
     showSelected = () => {
         this.props.showSelected
     }
-    saveShow = ()=>{
+    saveShow = () => {
         this.props.saveShow
     }
 
@@ -32,14 +43,15 @@ class TVdemo extends Component {
         return (
             <div>
                 <Shows allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
-                <div className='box'>
-                    <ul>
-                        <li><label htmlFor='name'>Name:<input type='text'></input></label></li>
-                        <li><label htmlFor='rating'>Rating:<input type='text'></input></label></li>
-                        <li><label htmlFor='imgurl'>Image URL:<input type='text'></input></label></li>
-                        <li><button type='submit' onClick={this.props.saveShow}>Submit</button></li>
-                    </ul>
-                </div>
+
+                <form className='box'>
+                    <div>
+                        <label htmlFor='name'>Name:</label>
+                        <input id='name' type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    </div>
+
+                </form>
+                <button onClick={this.saveShow}>Submit</button>
             </div>
         )
     }
