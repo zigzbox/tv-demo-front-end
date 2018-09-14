@@ -39,11 +39,8 @@ class TVdemo extends Component {
     saveShow = () => {
         this.props.saveShow
     }
-    renderShows=()=> {
-        return(
-            
-        )
-    }
+    // renderShows=()=> {
+    //     return()}
 
     render() {
         return (
