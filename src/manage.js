@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import './App.css'
 import './demo.css'
 import Shows from './Shows';
@@ -37,16 +37,27 @@ class TVdemo extends Component {
         this.props.showSelected
     }
     saveShow = () => {
-        this.props.saveShow
+        this.setState({
+        show: this.state.name
+        })
     }
-    // renderShows=()=> {
-    //     return()}
+    renderShows = () => {
+        return (
+            
+                <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+        )
+    }
 
     render() {
         return (
-            <div className='box'>
-                <Shows allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+            <div>
+                <div>
+                    <h3>
+                        Shows
+                    </h3>
+                    {this.renderShows}
 
+                </div>
                 <form>
                     <div>
                         <label htmlFor='name'>Name:</label>
@@ -54,11 +65,11 @@ class TVdemo extends Component {
                     </div>
                     <div>
                         <label htmlFor='rating'>Rating:</label>
-                        <input id='name' type='text' value={this.state.rating}  />
+                        <input id='rating' type='text' value={this.state.rating} />
                     </div>
                     <div>
                         <label htmlFor='imageurl'>Image URL:</label>
-                        <input id='name' type='text' value={this.state.imageurl} />
+                        <input id='imageurl' type='text' value={this.state.imageurl} />
                     </div>
 
                 </form>

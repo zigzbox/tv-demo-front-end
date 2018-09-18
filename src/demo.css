@@ -43,11 +43,12 @@ ul {
 .box{
     display: flex;
     justify-content: flex-end;
+    width: 250 px;
 }
 
 .column{
     display: flex;
     flex-direction: column;
     border-right: solid 2px black;
-    width: 250px;
+    width: 50px;
 }
