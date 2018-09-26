@@ -11,14 +11,14 @@ class TVdemo extends Component {
         imgurl: ''
 
     }
-    // handleOnClick = ()=>{
-    //     this.setState({
-    //         name: event.target.name,
-    //         rating: event.target.rating,
-    //         imgurl: event.target.imgurl
+    handleOnClick = ()=>{
+        this.setState({
+            // name: event.target.name,
+            // rating: event.target.rating,
+            // imgurl: event.target.imgurl
 
-    //     })
-    //  }
+        })
+     }
     handleNameChange = (event) => {
         console.log(event)
         console.log(event.target)
