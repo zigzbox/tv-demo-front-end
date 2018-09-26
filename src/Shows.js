@@ -4,7 +4,7 @@ class Shows extends Component {
 
     renderDelete = () => {
 
-        if (this.props.allowDelete) {
+        if (this.props.allowDelete === true) {
             return (
                 <button onClick={this.props.deleteHandler}>-</button>
             )

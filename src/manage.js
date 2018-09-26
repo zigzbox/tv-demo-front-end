@@ -1,24 +1,27 @@
 import React, { Component, Fragment } from 'react'
-import './App.css'
 import './demo.css'
 import Shows from './Shows';
+import './App.css'
 
 
 class TVdemo extends Component {
     state = {
         name: '',
+        show: {
+            name: ''
+        },
         rating: '',
         imgurl: ''
 
     }
-    handleOnClick = ()=>{
+    handleOnClick = () => {
         this.setState({
             // name: event.target.name,
             // rating: event.target.rating,
             // imgurl: event.target.imgurl
 
         })
-     }
+    }
     handleNameChange = (event) => {
         console.log(event)
         console.log(event.target)
@@ -31,20 +34,29 @@ class TVdemo extends Component {
     }
 
     showDeleted = () => {
-        this.props.showDeleted
+        this.setState({
+            show: {
+                name: this.state.show.name
+            }
+        })
     }
     showSelected = () => {
-        this.props.showSelected
+        this.setState({
+            name: this.state.show.name
+        })
     }
     saveShow = () => {
         this.setState({
-        show: this.state.name
+            name: '',
+            show: {
+                name: this.state.name
+            }
         })
     }
     renderShows = () => {
         return (
-            
-                <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+
+            <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
         )
     }
 
@@ -55,7 +67,7 @@ class TVdemo extends Component {
                     <h3>
                         Shows
                     </h3>
-                    {this.renderShows}
+                    {this.renderShows()}
 
                 </div>
                 <form>
