@@ -2,30 +2,26 @@ import React, { Component, Fragment } from 'react'
 import './demo.css'
 import Shows from './Shows';
 import './App.css'
+import Proptypes from 'prop-types'
 
 
 class TVdemo extends Component {
+    static propTypes = {
+        Shows: Proptypes.array.isRequired,
+        Show: Proptypes.object.isRequired,
+        ShowDeleted: Proptypes.func.isRequired,
+        saveShow: Proptypes.func.isRequired
+    }
+
+
     state = {
         name: '',
-        show: {
-            name: ''
-        },
         rating: '',
-        imgurl: ''
+        imageUrl: '',
 
     }
-    handleOnClick = () => {
-        this.setState({
-            // name: event.target.name,
-            // rating: event.target.rating,
-            // imgurl: event.target.imgurl
 
-        })
-    }
     handleNameChange = (event) => {
-        console.log(event)
-        console.log(event.target)
-        console.log(event.target.value)
         this.setState({
             name: event.target.value
 
@@ -42,21 +38,40 @@ class TVdemo extends Component {
     }
     showSelected = () => {
         this.setState({
-            name: this.state.show.name
+            name: this.props.Show.name,
+            ratingInProgress: this.props.Show.rating,
+            imageUrl: this.props.Show.imageurl
         })
     }
     saveShow = () => {
         this.setState({
             name: '',
-            show: {
-                name: this.state.name
-            }
+            rating: '',
+            imageUrl: ''
+        })
+
+        this.props.saveShow({
+            name: this.state.name,
+            rating: Number(this.state.rating),
+            imageUrl: this.state.imageUrl
         })
     }
+
+    showDeleted = () => {
+        this.props.showDeleted()
+
+    }
+
+    handleRatingChange = (event) => {
+        this.setState({
+            rating: event.target.value
+        })
+    }
+
     renderShows = () => {
         return (
 
-            <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+            <Shows key={i} name={Show.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
         )
     }
 
@@ -67,6 +82,8 @@ class TVdemo extends Component {
                     <h3>
                         Shows
                     </h3>
+                    {/* <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} saveShowHandler={this.saveShow} /> */}
+
                     {this.renderShows()}
 
                 </div>

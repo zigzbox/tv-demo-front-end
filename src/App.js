@@ -6,6 +6,36 @@ import TVdemoPreview from './PreviewPage';
 import './demo.css'
 import NavSite from './NavSite';
 class App extends Component {
+  state = {
+    Show: {
+      name: '',
+      rating: '',
+      imageUrl: ''
+    },
+    Shows: []
+  }
+
+  showDeleted = () =>{
+    this.setState({
+      Show: {
+        name: '',
+        rating: '',
+        imageUrl: ''
+      }
+    })
+  }
+
+  saveShow = (showToSave) =>{
+    this.setState(
+      (prevState) =>({
+        Shows: [...prevState.Shows, {
+          name: showToSave.name,
+          rating: showToSave.rating,
+          imageUrl: showToSave.imageUrl
+        }]
+      })
+    )
+  }
   render() {
     return (
       <div>
