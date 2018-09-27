@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-class Shows extends Component {
 
+
+
+
+
+
+class Shows extends Component {
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        allowDelete: PropTypes.bool,
+        selectHandler: PropTypes.func.isRequired,
+        deleteHandler: PropTypes.func
+    }
     renderDelete = () => {
 
         if (this.props.allowDelete === true) {

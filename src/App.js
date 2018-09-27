@@ -15,7 +15,7 @@ class App extends Component {
     Shows: []
   }
 
-  showDeleted = () =>{
+  showDeleted = () => {
     this.setState({
       Show: {
         name: '',
@@ -25,9 +25,9 @@ class App extends Component {
     })
   }
 
-  saveShow = (showToSave) =>{
+  saveShow = (showToSave) => {
     this.setState(
-      (prevState) =>({
+      (prevState) => ({
         Shows: [...prevState.Shows, {
           name: showToSave.name,
           rating: showToSave.rating,
@@ -36,18 +36,26 @@ class App extends Component {
       })
     )
   }
+
+  renderManage = () => {
+    return (<manage tvShows={this.state.tvShows} tvShow={this.state.tvShow} tvShowDeleted={this.tvShowDeleted} saveTVShow={this.saveTVShow} />)
+  }
+
+  renderTVdemoPreview = () => {
+    return (<TVdemoPreview tvShows={this.state.tvShows} tvShow={this.state.tvShow} />)
+  }
   render() {
     return (
       <div>
         <header>
-       <NavSite />
-       </header>
-          <Switch>
-            <Route exact path='/' component={TVdemo} />
-            <Route path='/TVdemoPreview' component={TVdemoPreview} />
-          </Switch>
-          
-        
+          <NavSite />
+        </header>
+        <Switch>
+          <Route exact path='/' component={TVdemo} />
+          <Route path='/TVdemoPreview' component={TVdemoPreview} />
+        </Switch>
+
+
 
       </div>
     )

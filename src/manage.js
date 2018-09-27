@@ -71,7 +71,7 @@ class TVdemo extends Component {
     renderShows = () => {
         return (
 
-            <Shows key={i} name={Show.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+            <Shows key={i} name={show.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
         )
     }
 
