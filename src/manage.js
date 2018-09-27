@@ -69,9 +69,12 @@ class TVdemo extends Component {
     }
 
     renderShows = () => {
-        return (
-
-            <Shows key={i} name={show.name} allowDelete={true} selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+        return this.props.Shows.map(
+            (show, i) => {
+                return (
+                    <Shows key={i} name={show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} />
+                )
+            }
         )
     }
 
@@ -82,7 +85,7 @@ class TVdemo extends Component {
                     <h3>
                         Shows
                     </h3>
-                    {/* <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} saveShowHandler={this.saveShow} /> */}
+                    <Shows name={this.state.show.name} allowDelete={true} selectHandler={this.showSelected} deleteHandler={this.showDeleted} saveShowHandler={this.saveShow} />
 
                     {this.renderShows()}
 
